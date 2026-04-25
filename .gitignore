@@ -2,3 +2,5 @@
 *.log
 .env
 node_modules/
+.playwright-mcp/
+*.png

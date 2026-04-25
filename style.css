@@ -63,6 +63,7 @@ header.site nav {
 
 header.site nav a {
   color: var(--muted);
+  white-space: nowrap;
 }
 header.site nav a:hover { color: var(--text); text-decoration: none; }
 header.site nav a.ext { color: var(--accent); }
@@ -194,8 +195,9 @@ footer a { color: var(--muted); }
 footer a:hover { color: var(--text); }
 
 @media (max-width: 600px) {
-  header.site { padding: 16px 20px; }
-  header.site nav { gap: 16px; font-size: 0.88rem; }
+  header.site { padding: 14px 18px; }
+  header.site nav { gap: 14px; font-size: 0.82rem; }
+  header.site nav a:nth-child(1) { display: none; }
   main { padding: 0 20px; }
   section { padding: 60px 0; }
 }

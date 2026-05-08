@@ -1,0 +1,43 @@
+---
+title: Welcome
+description: Outcall is a host-level firewall daemon for Docker agent containers. Read the guides if you're operating it; read the specs if you're contributing to it.
+---
+
+Outcall sits between agent containers and the outside world. It is one binary
+that runs the bridge, the rule engine, the DNS filter, the HTTP proxy, the
+container-side shim API, and the Docker network manager. It is opinionated in
+exactly two directions: **default-deny** and **fail-closed**.
+
+If `outcalld` is unreachable, every layer answers `block`, `SERVFAIL`, or
+exit-5. There is no "best effort" mode.
+
+## Pick your path
+
+<Cards>
+  <Card title="Quickstart" href="/docs/guides/quickstart" description="Run an agent that can reach exactly one host in five minutes." />
+  <Card title="Installation" href="/docs/guides/installation" description="Capabilities, mounts, build-from-source." />
+  <Card title="Writing rules" href="/docs/guides/rules" description="The YAML format, CEL conditions, and per-rule egress modes." />
+  <Card title="Specifications" href="/docs/specs" description="Every functional requirement, interface, and edge case — versioned and stable." />
+</Cards>
+
+## Two kinds of documentation
+
+This site has two halves:
+
+- **[Operator guides](/docs/guides)** — installation, configuration, the CLI,
+  rule authoring, troubleshooting. Hand-written, narrative, opinionated.
+- **[Specifications](/docs/specs)** — the formal source of truth for every
+  Outcall subsystem. Each spec module (S000–S010) has functional requirements,
+  interface contracts, edge cases, acceptance scenarios, and success criteria.
+  Stable IDs (e.g. `S001-FR-005`) survive refactors and let you cite them.
+
+If a guide and a spec disagree, the spec wins and the guide is a bug.
+
+## Source
+
+| Repo | Contents |
+|---|---|
+| [`outcall-dev/outcall`](https://github.com/outcall-dev/outcall) | The Rust workspace: `outcalld`, `outcall`, `outcall-agent`, `outcall-api`, `outcall-ui`. |
+| [`outcall-dev/specs`](https://github.com/outcall-dev/specs) | Spec modules — rendered into [Specifications](/docs/specs). |
+| [`outcall-dev/docs`](https://github.com/outcall-dev/docs) | Operator guides — rendered into [Guides](/docs/guides). |
+| [`outcall-dev/website`](https://github.com/outcall-dev/website) | This site. |

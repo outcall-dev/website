@@ -1,6 +1,29 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# next.js
+.next/
+out/
+
+# fumadocs-mdx generated source
+.source/
+
+# synced docs (built from external repos by scripts/sync-docs.mjs)
+content/docs/specs/
+content/docs/guides/
+.docs-cache/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# misc
 .DS_Store
 *.log
-.env
-node_modules/
-.playwright-mcp/
 *.png
+.playwright-mcp/
+.vercel
+.idea
+.vscode

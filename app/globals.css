@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+/* ─── Outcall brand tokens ──────────────────────────────────────────────── */
+@theme {
+  --color-brand-50: #eef0ff;
+  --color-brand-100: #d9deff;
+  --color-brand-200: #b6c0ff;
+  --color-brand-300: #8e9bff;
+  --color-brand-400: #7c8cff;
+  --color-brand-500: #5d6cff;
+  --color-brand-600: #4954e8;
+  --color-brand-700: #3a44bd;
+  --color-brand-800: #2c3593;
+  --color-brand-900: #1f266a;
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+/* ─── theme: dark default, light opt-in ─────────────────────────────────── */
+:root {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --surface: #14171c;
+  --surface-2: #1c2026;
+  --border: #232830;
+  --text: #e7eaef;
+  --muted: #8b95a3;
+  --accent: #7c8cff;
+  --accent-fg: #0b0d10;
+}
+
+:root.light {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --surface-2: #eef0f4;
+  --border: #e3e6ec;
+  --text: #0b0d10;
+  --muted: #5b6573;
+  --accent: #4954e8;
+  --accent-fg: #ffffff;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── small utilities used by marketing pages ───────────────────────────── */
+.shell { max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.125rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.btn:hover { background: var(--surface); }
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: var(--accent);
+}
+.btn-primary:hover { filter: brightness(1.08); background: var(--accent); }
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--border);
+}
+
+/* gradient hero accent (subtle, brand-coloured) */
+.hero-aura {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 80vh;
+  background:
+    radial-gradient(closest-side, color-mix(in oklab, var(--accent) 28%, transparent), transparent 70%),
+    radial-gradient(closest-side at 80% 30%, color-mix(in oklab, #6ee7ff 18%, transparent), transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}

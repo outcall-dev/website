@@ -19,7 +19,7 @@ export function CTA() {
             <Link href="/docs/guides/quickstart" className="btn btn-primary">
               Quickstart →
             </Link>
-            <Link href="https://github.com/outcall-dev/outcall" className="btn">
+            <Link href="https://github.com/Outcall-dev/outcall" className="btn">
               Star on GitHub
             </Link>
           </div>

@@ -28,7 +28,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="https://github.com/outcall-dev"
+            href="https://github.com/Outcall-dev"
             className="text-sm text-[var(--muted)] hover:text-[var(--text)]"
             aria-label="GitHub organisation"
           >

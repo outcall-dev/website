@@ -1,5 +1,16 @@
 # outcall.dev
 
+![Outcall Banner](https://raw.githubusercontent.com/outcall-dev/assets/main/banner.png)
+
+## Badges
+
+[![CI](https://github.com/outcall-dev/website/actions/workflows/ci.yml/badge.svg)](https://github.com/outcall-dev/website/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-0.1.8-blue.svg)](https://github.com/outcall-dev/website/releases/tag/v0.1.8)
+[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://outcall-dev.github.io/docs/)
+[![Docker](https://img.shields.io/docker/pulls/outcall-dev/outcall.svg)](https://hub.docker.com/r/outcall-dev/outcall)
+
+## Stack
+
 Marketing + documentation site for Outcall. Next.js 15 (App Router) +
 Fumadocs. Documentation is sourced from external repos at build time, the
 same way `laravel.com` builds from `laravel/docs`.

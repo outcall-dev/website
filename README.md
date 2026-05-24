@@ -97,9 +97,9 @@ Brand variables live in `app/globals.css` under the `:root` and `:root.light`
 selectors. Tailwind's `@theme` block defines a small accessible palette used
 by Tailwind utilities (`bg-brand-500` etc.).
 
-## TODOs left for a contributor
+## Copy left for a contributor
 
-These are flagged with `TODO(copy)` in the source:
+Two marketing components are good candidates for iteration:
 
 - `components/marketing/hero.tsx` — the headline + sub-line. Sharper threat
   model framing would land harder than the current cure-side framing.

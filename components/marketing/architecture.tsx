@@ -83,7 +83,7 @@ function Box({ x, y, w, h, title, sub }: { x: number; y: number; w: number; h: n
         </text>
       )}
       {sub && (
-        <text x={x + w / 2} y={y + 50} textAnchor="middle" fontSize="12" fill="var(--muted)">
+        <text x={x + w / 2} y={y + (title ? 50 : h / 2 + 5)} textAnchor="middle" fontSize="12" fill="var(--muted)">
           {sub}
         </text>
       )}

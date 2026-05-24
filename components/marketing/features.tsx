@@ -1,7 +1,7 @@
 const FEATURES = [
   {
     title: 'Default-deny in the kernel',
-    body: 'Each agent host gets one Linux bridge with `policy drop` on FORWARD. Allows you write compile to nftables verdicts and hit-counters. Verify any rule is live with `nft list table inet outcall`.',
+    body: 'Each agent host gets one Linux bridge with `policy drop` on FORWARD. Allow rules you write compile to nftables verdicts and hit-counters. Verify any rule is live with `nft list table inet outcall`.',
   },
   {
     title: 'Block agents at the DNS layer',

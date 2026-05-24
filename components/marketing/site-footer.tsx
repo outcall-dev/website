@@ -33,10 +33,10 @@ export function SiteFooter() {
         <FooterCol
           title="Source"
           links={[
-            { href: 'https://github.com/Outcall-dev/outcall', label: 'application' },
-            { href: 'https://github.com/Outcall-dev/specs', label: 'specs' },
-            { href: 'https://github.com/Outcall-dev/docs', label: 'docs' },
-            { href: 'https://github.com/Outcall-dev/website', label: 'website' },
+            { href: 'https://github.com/outcall-dev/outcall', label: 'application' },
+            { href: 'https://github.com/outcall-dev/specs', label: 'specs' },
+            { href: 'https://github.com/outcall-dev/docs', label: 'docs' },
+            { href: 'https://github.com/outcall-dev/website', label: 'website' },
           ]}
         />
       </div>

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Pulls documentation from external repos at build time, just like Laravel.
 //
-//   marketing site (this repo) ─── pulls ───▶ Outcall-dev/specs   (S000–S015)
-//                                  pulls ───▶ Outcall-dev/docs    (guides)
+//   marketing site (this repo) ─── pulls ───▶ outcall-dev/specs   (S000–S015)
+//                                  pulls ───▶ outcall-dev/docs    (guides)
 //
 // Local dev: if a sibling directory exists at ../specs or ../docs (the layout
 //   in the developer's monorepo working tree), we copy from there. Faster, no
@@ -12,8 +12,8 @@
 //
 // Override via env:
 //   OUTCALL_DOCS_SOURCE=local|remote   (default: auto)
-//   OUTCALL_SPECS_REPO=https://...     (default: github.com/Outcall-dev/specs)
-//   OUTCALL_DOCS_REPO=https://...      (default: github.com/Outcall-dev/docs)
+//   OUTCALL_SPECS_REPO=https://...     (default: github.com/outcall-dev/specs)
+//   OUTCALL_DOCS_REPO=https://...      (default: github.com/outcall-dev/docs)
 //   OUTCALL_SPECS_REF=branch|sha       (default: main)
 //   OUTCALL_DOCS_REF=branch|sha        (default: main)
 
@@ -28,14 +28,14 @@ const ROOT = join(__dirname, '..');
 const CONFIG = {
   mode: process.env.OUTCALL_DOCS_SOURCE ?? 'auto', // auto | local | remote
   specs: {
-    repo: process.env.OUTCALL_SPECS_REPO ?? 'https://github.com/Outcall-dev/specs.git',
+    repo: process.env.OUTCALL_SPECS_REPO ?? 'https://github.com/outcall-dev/specs.git',
     ref: process.env.OUTCALL_SPECS_REF ?? 'main',
     localPath: join(ROOT, '..', 'specs'),
     target: join(ROOT, 'content', 'docs', 'specs'),
     cacheDir: join(ROOT, '.docs-cache', 'specs'),
   },
   guides: {
-    repo: process.env.OUTCALL_DOCS_REPO ?? 'https://github.com/Outcall-dev/docs.git',
+    repo: process.env.OUTCALL_DOCS_REPO ?? 'https://github.com/outcall-dev/docs.git',
     ref: process.env.OUTCALL_DOCS_REF ?? 'main',
     localPath: join(ROOT, '..', 'docs'),
     target: join(ROOT, 'content', 'docs', 'guides'),
@@ -218,7 +218,7 @@ function syncSpecs() {
   log(`specs synced (${specDirs.length} modules)`);
 }
 
-// ─── guides (hand-written docs from Outcall-dev/docs) ───────────────────────
+// ─── guides (hand-written docs from outcall-dev/docs) ───────────────────────
 
 function syncGuides() {
   const source = resolveSource(CONFIG.guides);

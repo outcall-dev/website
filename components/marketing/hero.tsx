@@ -29,7 +29,7 @@ export function Hero() {
             Read the docs
           </Link>
           <Link
-            href="https://github.com/Outcall-dev/outcall"
+            href="https://github.com/outcall-dev/outcall"
             className="btn"
           >
             Source on GitHub

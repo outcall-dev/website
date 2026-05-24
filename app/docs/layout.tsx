@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }}
       links={[
         { text: 'Architecture', url: '/architecture' },
-        { text: 'GitHub', url: 'https://github.com/Outcall-dev', external: true },
+        { text: 'GitHub', url: 'https://github.com/outcall-dev', external: true },
       ]}
       sidebar={{
         defaultOpenLevel: 1,

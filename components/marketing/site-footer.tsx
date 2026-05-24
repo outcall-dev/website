@@ -55,16 +55,21 @@ function FooterCol({ title, links }: { title: string; links: { href: string; lab
     <div>
       <div className="font-semibold mb-2">{title}</div>
       <ul className="space-y-1.5">
-        {links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
-            >
-              {l.label}
-            </Link>
-          </li>
-        ))}
+        {links.map((l) => {
+          const isExternal = /^https?:\/\//.test(l.href);
+          return (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                className="text-[var(--muted)] hover:text-[var(--text)] transition-colors"
+              >
+                {l.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

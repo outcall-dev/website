@@ -165,9 +165,14 @@ function syncSpecs() {
   const specsRoot = join(repoRoot, 'specs');
   clean(CONFIG.specs.target);
 
-  // Top-level index.
+  // Top-level index. README links to GitHub-relative paths like
+  // `specs/000-workspace/index.md`; rewrite those to Fumadocs slugs
+  // (`./000-workspace`) so they resolve at `/docs/specs/000-workspace`
+  // on the deployed site.
   const readme = existsSync(join(repoRoot, 'README.md'))
-    ? readFileSync(join(repoRoot, 'README.md'), 'utf8').replace(/^# .*\n+/, '')
+    ? readFileSync(join(repoRoot, 'README.md'), 'utf8')
+        .replace(/^# .*\n+/, '')
+        .replace(/\]\(specs\/(\d{3}-[^/)]+)\/index\.md\)/g, '](./$1)')
     : '';
   writeFileSync(
     join(CONFIG.specs.target, 'index.md'),

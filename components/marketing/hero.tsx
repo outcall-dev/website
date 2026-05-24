@@ -30,6 +30,8 @@ export function Hero() {
           </Link>
           <Link
             href="https://github.com/outcall-dev/outcall"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn"
           >
             Source on GitHub

@@ -55,6 +55,11 @@ const SPEC_TITLES = {
   '008-docker-manager': 'S008 · Docker Manager',
   '009-dynamic-rules': 'S009 · Dynamic Rules',
   '010-dashboard': 'S010 · Dashboard',
+  '011-tls-interception': 'S011 · TLS Interception (optional)',
+  '012-test-coverage': 'S012 · Test Coverage',
+  '013-agent-name-context': 'S013 · Agent-Name Rule Context',
+  '014-agent-boot': 'S014 · Agent Boot Command',
+  '015-security-boundary': 'S015 · Security Boundary',
 };
 
 const SUBPAGE_ORDER = [
@@ -154,25 +159,30 @@ function copyWithFrontmatter(srcFile, destFile, fields) {
 // ─── specs (S000–S010) ──────────────────────────────────────────────────────
 
 function syncSpecs() {
-  const source = resolveSource(CONFIG.specs);
+  const repoRoot = resolveSource(CONFIG.specs);
+  // Spec modules live under `<repo>/specs/`, not at the repo root. The README
+  // stays at the repo root and is rendered into the top-level index.
+  const specsRoot = join(repoRoot, 'specs');
   clean(CONFIG.specs.target);
 
   // Top-level index.
-  const readme = existsSync(join(source, 'README.md'))
-    ? readFileSync(join(source, 'README.md'), 'utf8').replace(/^# .*\n+/, '')
+  const readme = existsSync(join(repoRoot, 'README.md'))
+    ? readFileSync(join(repoRoot, 'README.md'), 'utf8').replace(/^# .*\n+/, '')
     : '';
   writeFileSync(
     join(CONFIG.specs.target, 'index.md'),
     frontmatter({
       title: 'Specifications',
-      description: 'Outcall is built spec-first. Eleven modular specs define the system.',
+      description: 'Outcall is built spec-first. Modular specs S000–S015 define the system.',
     }) + readme
   );
 
-  const specDirs = readdirSync(source, { withFileTypes: true })
-    .filter((e) => e.isDirectory() && /^\d{3}-/.test(e.name))
-    .map((e) => e.name)
-    .sort();
+  const specDirs = existsSync(specsRoot)
+    ? readdirSync(specsRoot, { withFileTypes: true })
+        .filter((e) => e.isDirectory() && /^\d{3}-/.test(e.name))
+        .map((e) => e.name)
+        .sort()
+    : [];
 
   writeFileSync(
     join(CONFIG.specs.target, 'meta.json'),
@@ -180,7 +190,7 @@ function syncSpecs() {
   );
 
   for (const dir of specDirs) {
-    const specSource = join(source, dir);
+    const specSource = join(specsRoot, dir);
     const specTarget = join(CONFIG.specs.target, dir);
     mkdirSync(specTarget, { recursive: true });
 
@@ -221,21 +231,25 @@ function syncSpecs() {
 // ─── guides (hand-written docs from outcall-dev/docs) ───────────────────────
 
 function syncGuides() {
-  const source = resolveSource(CONFIG.guides);
+  const repoRoot = resolveSource(CONFIG.guides);
+  // Guide markdown lives under `<repo>/docs/md/`; test plans under `<repo>/docs/tests/`.
+  const guidesRoot = join(repoRoot, 'docs', 'md');
   clean(CONFIG.guides.target);
 
-  const candidates = readdirSync(source, { withFileTypes: true })
-    .filter((e) => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
-    .map((e) => e.name)
-    .sort();
+  const candidates = existsSync(guidesRoot)
+    ? readdirSync(guidesRoot, { withFileTypes: true })
+        .filter((e) => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
+        .map((e) => e.name)
+        .sort()
+    : [];
 
   for (const file of candidates) {
     const slug = file.replace(/\.md$/, '');
     const title = slug.split('-').map((s) => s[0].toUpperCase() + s.slice(1)).join(' ');
-    copyWithFrontmatter(join(source, file), join(CONFIG.guides.target, `${slug}.md`), { title });
+    copyWithFrontmatter(join(guidesRoot, file), join(CONFIG.guides.target, `${slug}.md`), { title });
   }
 
-  const testsDir = join(source, 'tests');
+  const testsDir = join(repoRoot, 'docs', 'tests');
   let testFiles = [];
   if (existsSync(testsDir) && statSync(testsDir).isDirectory()) {
     const testTarget = join(CONFIG.guides.target, 'tests');

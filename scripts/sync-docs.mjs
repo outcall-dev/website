@@ -236,9 +236,13 @@ function syncGuides() {
   const guidesRoot = join(repoRoot, 'docs', 'md');
   clean(CONFIG.guides.target);
 
+  // Skip files that exist for the docs repo's own tooling, not for site readers:
+  //   - README.md: repo-level overview
+  //   - AGENTS.md / CLAUDE.md: agent-tooling context (claude-mem etc.)
+  const SKIP_GUIDE_FILES = new Set(['README.md', 'AGENTS.md', 'CLAUDE.md']);
   const candidates = existsSync(guidesRoot)
     ? readdirSync(guidesRoot, { withFileTypes: true })
-        .filter((e) => e.isFile() && e.name.endsWith('.md') && e.name !== 'README.md')
+        .filter((e) => e.isFile() && e.name.endsWith('.md') && !SKIP_GUIDE_FILES.has(e.name))
         .map((e) => e.name)
         .sort()
     : [];

@@ -38,8 +38,8 @@ content/
 └── docs/
     ├── index.mdx          ← /docs landing (committed)
     ├── meta.json          ← root sidebar order (committed)
-    ├── specs/             ← synced from Outcall-dev/specs (gitignored)
-    └── guides/            ← synced from Outcall-dev/docs  (gitignored)
+    ├── specs/             ← synced from outcall-dev/specs (gitignored)
+    └── guides/            ← synced from outcall-dev/docs  (gitignored)
 scripts/
 └── sync-docs.mjs          ← clones the docs repos into content/docs
 ```
@@ -83,8 +83,8 @@ that runs `pnpm build` and serves `.next` / static output.
 |---|---|
 | Marketing copy (hero, features) | `components/marketing/*.tsx` in this repo |
 | `/docs` landing page | `content/docs/index.mdx` in this repo |
-| Operator guides | the [`Outcall-dev/docs`](https://github.com/Outcall-dev/docs) repo |
-| Specifications | the [`Outcall-dev/specs`](https://github.com/Outcall-dev/specs) repo |
+| Operator guides | the [`outcall-dev/docs`](https://github.com/outcall-dev/docs) repo |
+| Specifications | the [`outcall-dev/specs`](https://github.com/outcall-dev/specs) repo |
 
 Edit-on-GitHub links and "last updated" timestamps are not wired up yet.
 The fumadocs page wrapper at `app/docs/[[...slug]]/page.tsx` renders

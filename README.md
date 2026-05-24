@@ -86,9 +86,10 @@ that runs `pnpm build` and serves `.next` / static output.
 | Operator guides | the [`Outcall-dev/docs`](https://github.com/Outcall-dev/docs) repo |
 | Specifications | the [`Outcall-dev/specs`](https://github.com/Outcall-dev/specs) repo |
 
-Edit-on-GitHub links and "last updated" timestamps are wired up in the
-fumadocs page wrapper — see `app/docs/[[...slug]]/page.tsx` for where to
-extend them.
+Edit-on-GitHub links and "last updated" timestamps are not wired up yet.
+The fumadocs page wrapper at `app/docs/[[...slug]]/page.tsx` renders
+title + description + body only; adding them means passing the matching
+props to `<DocsPage>` — see the fumadocs docs for the prop shape.
 
 ## Theme
 

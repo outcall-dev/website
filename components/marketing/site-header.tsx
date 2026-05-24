@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 const NAV = [
   { href: '/docs', label: 'Docs' },
-  { href: '/docs/guides', label: 'Guides' },
   { href: '/docs/specs', label: 'Specs' },
   { href: '/architecture', label: 'Architecture' },
 ];

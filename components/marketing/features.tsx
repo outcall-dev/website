@@ -9,7 +9,7 @@ const FEATURES = [
   },
   {
     title: 'See exactly what HTTPS calls were made',
-    body: 'A forward proxy on the bridge matches plaintext HTTP on host + method + path, and HTTPS on CONNECT host + TLS SNI — no decryption by default. Opt into per-rule intercept (S011) with a CA you provision when method/path/body enforcement is worth it.',
+    body: 'A forward proxy on the bridge matches plaintext HTTP on host + method + path, and HTTPS on CONNECT host + TLS SNI — no decryption, by design. A per-rule intercept mode is specified (S011) but intentionally not implemented in v0.1; HTTPS method/path/body is not visible inside the encrypted tunnel.',
   },
   {
     title: 'Agents ask before they reach',

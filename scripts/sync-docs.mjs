@@ -44,7 +44,7 @@ const CONFIG = {
 };
 
 const SPEC_TITLES = {
-  '000-workspace': 'S000 · Workspace & Shared Types',
+  '000-workspace': 'S000 · Workspace Structure',
   '001-bridge-management': 'S001 · Bridge Management',
   '002-network-management': 'S002 · Network Management',
   '003-rule-engine': 'S003 · Rule Engine',
@@ -59,7 +59,7 @@ const SPEC_TITLES = {
   '012-test-coverage': 'S012 · Test Coverage',
   '013-agent-name-context': 'S013 · Agent-Name Rule Context',
   '014-agent-boot': 'S014 · Agent Boot Command',
-  '015-security-boundary': 'S015 · Security Boundary',
+  '015-security-boundary': 'S015 · Security Boundary and Rule Enforcement',
 };
 
 const SUBPAGE_ORDER = [

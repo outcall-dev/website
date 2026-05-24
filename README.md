@@ -6,10 +6,9 @@
 
 [![CI](https://github.com/outcall-dev/website/actions/workflows/ci.yml/badge.svg)](https://github.com/outcall-dev/website/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-0.1.8-blue.svg)](https://github.com/outcall-dev/website/releases/tag/v0.1.8)
-[![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://outcall-dev.github.io/docs/)
-[![Docker](https://img.shields.io/docker/pulls/outcall-dev/outcall.svg)](https://hub.docker.com/r/outcall-dev/outcall)
+[![Docs](https://img.shields.io/badge/docs-outcall.dev-brightgreen.svg)](https://outcall.dev/docs)
 
-## Stack
+## Overview
 
 Marketing + documentation site for Outcall. Next.js 15 (App Router) +
 Fumadocs. Documentation is sourced from external repos at build time, the

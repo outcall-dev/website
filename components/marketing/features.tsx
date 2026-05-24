@@ -1,33 +1,27 @@
-// TODO(copy): the feature deck is the second-most-important piece of copy
-// after the hero. Each card answers "why does this exist?" Worth a careful
-// pass — a future contributor (you?) should validate that:
-//   1. each title states what it gives the operator (not the implementation)
-//   2. each description names a concrete thing the operator can verify
-
 const FEATURES = [
   {
-    title: 'Bridge + nftables',
-    body: 'An isolated L2 segment per host. Default-deny in the kernel. Allow rules compile to nftables verdicts you can read with `nft list table`.',
+    title: 'Default-deny in the kernel',
+    body: 'Each agent host gets one Linux bridge with `policy drop` on FORWARD. Allows you write compile to nftables verdicts and hit-counters. Verify any rule is live with `nft list table inet outcall`.',
   },
   {
-    title: 'DNS filter',
-    body: 'The bridge gateway runs a DNS resolver that only answers for hosts in the rule set. Blocked queries return NXDOMAIN — agents fail at name lookup, not after a TCP timeout.',
+    title: 'Block agents at the DNS layer',
+    body: 'The bridge gateway answers only for hosts in your rule set. Unlisted lookups return NXDOMAIN — agents fail immediately at name resolution, not after a 30-second TCP timeout that taints retries.',
   },
   {
-    title: 'HTTP proxy',
-    body: 'A forward proxy on the bridge gateway. Plaintext HTTP is matched on host, method, and path. HTTPS is matched on the CONNECT host and the TLS SNI — no decryption by default. An optional, per-rule intercept mode (S011) lets you decrypt with a CA you provision, when L7 enforcement of HTTPS method/path/body is worth the trade-offs.',
+    title: 'See exactly what HTTPS calls were made',
+    body: 'A forward proxy on the bridge matches plaintext HTTP on host + method + path, and HTTPS on CONNECT host + TLS SNI — no decryption by default. Opt into per-rule intercept (S011) with a CA you provision when method/path/body enforcement is worth it.',
   },
   {
-    title: 'Agent API',
-    body: 'A Unix socket inside each container. The agent shim asks "may I reach X?" before egress, and submits rule requests to the operator for review. No agent ever touches the host policy directly.',
+    title: 'Agents ask before they reach',
+    body: 'A Unix socket inside each container lets the agent shim call `may_i_reach(host)` and submit new rule requests for operator approval. The agent never touches host policy directly; rule changes are auditable.',
   },
   {
-    title: 'Dynamic rules',
-    body: 'Drop YAML into /etc/outcall/rules.d and reload. Rules survive daemon restarts; networks and containers outlive the daemon, so you can ship rule changes without rolling agents.',
+    title: 'Reload policy without restarting agents',
+    body: 'Drop YAML into `/etc/outcall/rules.d` and `outcall rules reload`. Networks and containers outlive the daemon — you can ship a rule change in seconds without rolling a single agent.',
   },
   {
-    title: 'CLI + dashboard',
-    body: 'One outcall CLI talks to the host socket — bridge, DNS, proxy, networks, containers. A web dashboard renders the same data for operators who prefer panes over panes.',
+    title: 'One source of truth across CLI, API, and dashboard',
+    body: 'The `outcall` CLI, the JSON API on `/run/outcall/host.sock`, and the web dashboard all read the same daemon state. What you see in the UI is what `outcall rules list` prints — no separate inventory to drift.',
   },
 ];
 

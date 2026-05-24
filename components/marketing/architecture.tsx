@@ -50,13 +50,13 @@ function DiagramSVG() {
         <text x={440} y={200} textAnchor="middle" fontSize="16" fontWeight="600" fill="var(--text)">
           outcalld
         </text>
-        <Pill x={70} y={222} label="rule engine" />
-        <Pill x={195} y={222} label="bridge" />
-        <Pill x={290} y={222} label="nftables" />
-        <Pill x={400} y={222} label="DNS filter" />
-        <Pill x={515} y={222} label="HTTP proxy" />
-        <Pill x={635} y={222} label="agent API" />
-        <Pill x={745} y={222} label="docker manager" />
+        <Pill x={45} y={222} label="rule engine" />
+        <Pill x={171} y={222} label="bridge" />
+        <Pill x={262} y={222} label="nftables" />
+        <Pill x={367} y={222} label="DNS filter" />
+        <Pill x={486} y={222} label="HTTP proxy" />
+        <Pill x={605} y={222} label="agent API" />
+        <Pill x={717} y={222} label="docker manager" />
 
         {/* Bridge interface */}
         <Box x={340} y={345} w={200} h={50} title="outcall0 bridge" sub="" />

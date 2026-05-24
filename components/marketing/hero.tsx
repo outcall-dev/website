@@ -1,11 +1,5 @@
 import Link from 'next/link';
 
-// TODO(copy): refine the headline and sub-line. The current copy is the
-// existing site's working version. Strong candidates for revision:
-//   - sub-line could lead with the threat ("LLM agents will exfiltrate or
-//     fetch from anywhere by default") rather than the cure.
-//   - the "prove it" promise could be backed up with a one-line proof point
-//     (e.g. "every allow rule maps to an nftables counter you can read").
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -18,9 +12,14 @@ export function Hero() {
           <span className="text-[var(--accent)]">Then prove it.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          Outcall is a host-level firewall daemon for Docker agent containers.
-          One bridge, one rule set, one place to say what an agent may talk to —
-          enforced by nftables, DNS, and an HTTP proxy your container can't bypass.
+          By default, an LLM agent in a container can reach the public internet,
+          your internal network, and the host's localhost services. Outcall says
+          no in the kernel: nftables, DNS, and an HTTP proxy your container can't
+          bypass — and every allow you write becomes an{' '}
+          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
+            nft list table
+          </code>{' '}
+          counter you can read.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link href="/docs/guides/quickstart" className="btn btn-primary">

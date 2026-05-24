@@ -261,9 +261,13 @@ function syncGuides() {
   const testsDir = join(repoRoot, 'docs', 'tests');
   let testFiles = [];
   if (existsSync(testsDir) && statSync(testsDir).isDirectory()) {
+    testFiles = readdirSync(testsDir).filter((f) => f.endsWith('.md') && f !== 'README.md');
+  }
+  // Skip creating the /docs/guides/tests page when there's no content to put
+  // in it; an empty nav entry just creates a dead route on the site.
+  if (testFiles.length > 0) {
     const testTarget = join(CONFIG.guides.target, 'tests');
     mkdirSync(testTarget, { recursive: true });
-    testFiles = readdirSync(testsDir).filter((f) => f.endsWith('.md') && f !== 'README.md');
     for (const entry of testFiles) {
       const slug = entry.replace(/\.md$/, '');
       copyWithFrontmatter(join(testsDir, entry), join(testTarget, `${slug}.md`), {

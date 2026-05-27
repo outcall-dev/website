@@ -24,7 +24,7 @@ function DiagramSVG() {
         viewBox="0 0 880 460"
         className="w-full h-auto"
         role="img"
-        aria-label="Outcall architecture: operator and agent containers connect to outcalld through separate Unix sockets; outcalld manages the bridge, nftables, DNS filter, HTTP proxy, and Docker networks."
+        aria-label="Outcall architecture: operator and agent containers connect to outcalld through separate Unix sockets; outcalld runs the rule engine, bridge, nftables, DNS filter, HTTP proxy, agent API, and docker manager."
       >
         <defs>
           <linearGradient id="daemonGrad" x1="0" x2="1" y1="0" y2="1">

@@ -13,7 +13,7 @@ const FEATURES = [
   },
   {
     title: 'Agents ask before they reach',
-    body: 'A Unix socket inside each container lets the agent shim call `may_i_reach(host)` and submit new rule requests for operator approval. The agent never touches host policy directly; rule changes are auditable.',
+    body: 'A Unix socket inside each container lets the agent ask the daemon via `outcall fetch <url>` (or `outcall exec`, `outcall file`, etc.) before acting, and submit new rule requests for operator approval. The agent never touches host policy directly; rule changes are auditable.',
   },
   {
     title: 'Reload policy without restarting agents',

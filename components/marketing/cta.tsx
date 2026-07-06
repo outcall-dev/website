@@ -13,8 +13,9 @@ export function CTA() {
           </h2>
           <p className="mt-6 text-[var(--muted)] text-lg">
             Outcall is open source, spec-first, and Linux-native. Install once,
-            run <code>outcall</code> for the recommended path, then start with{' '}
-            <code>outcall start</code>. If this host matches both providers,
+            run <code>outcall</code>, and let it launch the isolated agent
+            directly when detection is clear. Use <code>outcall start</code>{' '}
+            when you want the explicit subcommand. If this host matches both providers,
             choose explicitly with <code>outcall claude</code> or{' '}
             <code>outcall codex</code>.
           </p>

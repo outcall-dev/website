@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     template: '%s · Outcall',
   },
   description:
-    'Install once, run outcall for the recommended path, then use outcall start to launch Claude Code or Codex in a default-deny container with host-level egress control.',
+    'Install once, run outcall, and let Outcall launch Claude Code or Codex directly when the provider is unambiguous, with default-deny egress control at the host.',
   openGraph: {
     title: 'Outcall',
     description:
-      'Install once, run outcall for the recommended path, then use outcall start to launch Claude Code or Codex in a default-deny container with host-level egress control.',
+      'Install once, run outcall, and let Outcall launch Claude Code or Codex directly when the provider is unambiguous, with default-deny egress control at the host.',
     url: 'https://outcall.dev',
     siteName: 'Outcall',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Outcall',
-    description: 'Install once, run outcall for the recommended path, then use outcall start for an isolated Claude Code or Codex container.',
+    description: 'Install once, run outcall, and let Outcall launch Claude Code or Codex directly when the provider is unambiguous.',
   },
 };
 

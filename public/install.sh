@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${OUTCALL_VERSION:-0.1.18}"
+VERSION="${OUTCALL_VERSION:-0.1.19}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
 REPO="https://github.com/outcall-dev/outcall/releases/download/v${VERSION}"
 

@@ -21,7 +21,7 @@ const FEATURES = [
   },
   {
     title: 'One source of truth across CLI, API, and dashboard',
-    body: 'The `outcall` CLI, the JSON API on `/run/outcall/host.sock`, and the web dashboard all read the same daemon state. What you see in the UI is what `outcall rules list` prints — no separate inventory to drift.',
+    body: 'The `outcall` CLI, the JSON API on `/tmp/outcall/host.sock`, and the web dashboard all read the same daemon state. What you see in the UI is what `outcall rules list` prints — no separate inventory to drift.',
   },
 ];
 

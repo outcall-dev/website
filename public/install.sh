@@ -3,7 +3,7 @@ set -eu
 
 VERSION="${OUTCALL_VERSION:-0.1.19}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
-REPO="https://github.com/outcall-dev/outcall/releases/download/v${VERSION}"
+BASE_URL="${OUTCALL_RELEASE_BASE_URL:-https://github.com/outcall-dev/outcall/releases/download/v${VERSION}}"
 
 need_cmd() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -41,7 +41,7 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 echo "==> Downloading Outcall v${VERSION} for ${target}"
-curl -fsSL -o "$tmpdir/$archive" "$REPO/$archive"
+curl -fsSL -o "$tmpdir/$archive" "$BASE_URL/$archive"
 
 echo "==> Installing binaries to $BIN_DIR"
 mkdir -p "$BIN_DIR"

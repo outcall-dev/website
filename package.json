@@ -1,6 +1,6 @@
 {
   "name": "outcall-website",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": true,
   "description": "outcall.dev — marketing + documentation site (Next.js).",
   "scripts": {

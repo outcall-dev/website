@@ -13,7 +13,7 @@ export function CTA() {
           </h2>
           <p className="mt-6 text-[var(--muted)] text-lg">
             Outcall is open source, spec-first, and Linux-native. The first-run
-            path is now `init`, `doctor`, `recipe test`, then `recipe run`.
+            path is now `setup`, then `recipe run`.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/docs/guides/quickstart" className="btn btn-primary">

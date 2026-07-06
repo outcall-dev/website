@@ -1,14 +1,14 @@
 {
   "name": "outcall-website",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "description": "outcall.dev — marketing + documentation site (Next.js).",
   "scripts": {
     "sync:docs": "node scripts/sync-docs.mjs",
-    "predev": "pnpm sync:docs",
-    "prebuild": "pnpm sync:docs",
+    "predev": "node scripts/sync-docs.mjs",
+    "prebuild": "node scripts/sync-docs.mjs",
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"

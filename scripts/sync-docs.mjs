@@ -172,6 +172,7 @@ function syncSpecs() {
   const readme = existsSync(join(repoRoot, 'README.md'))
     ? readFileSync(join(repoRoot, 'README.md'), 'utf8')
         .replace(/^# .*\n+/, '')
+        .replace(/^!\[[^\]]*]\(https?:\/\/[^)]+\)\n+/gm, '')
         .replace(/\]\(specs\/(\d{3}-[^/)]+)\/index\.md\)/g, '](./$1)')
     : '';
   writeFileSync(
@@ -237,8 +238,10 @@ function syncSpecs() {
 
 function syncGuides() {
   const repoRoot = resolveSource(CONFIG.guides);
-  // Guide markdown lives under `<repo>/docs/md/`; test plans under `<repo>/docs/tests/`.
-  const guidesRoot = join(repoRoot, 'docs', 'md');
+  // Guide markdown used to live under `<repo>/docs/md/`; the public docs repo
+  // now stores the same files directly under `<repo>/docs/`.
+  const legacyGuidesRoot = join(repoRoot, 'docs', 'md');
+  const guidesRoot = existsSync(legacyGuidesRoot) ? legacyGuidesRoot : join(repoRoot, 'docs');
   clean(CONFIG.guides.target);
 
   // Skip files that exist for the docs repo's own tooling, not for site readers:
@@ -309,6 +312,43 @@ function syncGuides() {
 
 function main() {
   log(`mode=${CONFIG.mode}`);
+  mkdirSync(join(ROOT, 'content', 'docs'), { recursive: true });
+  writeFileSync(
+    join(ROOT, 'content', 'docs', 'index.mdx'),
+    frontmatter({
+      title: 'Welcome',
+      description:
+        "Outcall is a host-level firewall daemon for Docker agent containers. Read the guides if you're operating it; read the specs if you're contributing to it.",
+    }) +
+      `Outcall sits between agent containers and the outside world. It is one binary
+that runs the bridge, the rule engine, the DNS filter, the HTTP proxy, the
+container-side shim API, and the Docker network manager. It is opinionated in
+exactly two directions: **default-deny** and **fail-closed**.
+
+If \`outcalld\` is unreachable, every layer answers \`block\`, \`SERVFAIL\`, or
+exit-5. There is no "best effort" mode.
+
+## Pick your path
+
+<Cards>
+  <Card title="Quickstart" href="/docs/guides/quickstart" description="Run an agent that can reach exactly one host in five minutes." />
+  <Card title="Installation" href="/docs/guides/installation" description="Capabilities, mounts, and release images." />
+  <Card title="Writing rules" href="/docs/guides/rules" description="The YAML format, CEL conditions, and per-rule egress modes." />
+  <Card title="Specifications" href="/docs/specs" description="Every functional requirement, interface, and edge case — versioned and stable." />
+</Cards>
+
+## Two kinds of documentation
+
+- **[Operator guides](/docs/guides)** — installation, configuration, the CLI,
+  rule authoring, troubleshooting.
+- **[Specifications](/docs/specs)** — the formal source of truth for every
+  Outcall subsystem.
+`
+  );
+  writeFileSync(
+    join(ROOT, 'content', 'docs', 'meta.json'),
+    JSON.stringify({ title: 'Documentation', pages: ['index', 'guides', 'specs'] }, null, 2)
+  );
   syncSpecs();
   syncGuides();
   log('done');

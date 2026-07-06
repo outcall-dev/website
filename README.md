@@ -5,7 +5,7 @@
 ## Badges
 
 [![CI](https://github.com/outcall-dev/website/actions/workflows/ci.yml/badge.svg)](https://github.com/outcall-dev/website/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-0.1.15-blue.svg)](https://github.com/outcall-dev/website/releases)
+[![Version](https://img.shields.io/badge/version-0.1.16-blue.svg)](https://github.com/outcall-dev/website/releases)
 [![Docs](https://img.shields.io/badge/docs-outcall.dev-brightgreen.svg)](https://outcall.dev/docs)
 
 ## Overview

@@ -13,7 +13,11 @@ export function Hero() {
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
           Outcall gives new users a one-command run path: install once, let the
-          Linux installer preload the matching daemon image, then run{' '}
+          Linux installer preload the matching daemon image, run{' '}
+          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
+            outcall
+          </code>{' '}
+          for the recommended next step, then use{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             outcall start
           </code>{' '}

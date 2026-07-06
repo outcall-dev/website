@@ -12,15 +12,15 @@ export function Hero() {
           <span className="text-[var(--accent)]">in a default-deny box.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          Outcall gives new users a one-command setup path: run{' '}
+          Outcall gives new users a one-command run path: run{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall setup claude
+            outcall run claude
           </code>{' '}
           or{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall setup codex
+            outcall run codex
           </code>{' '}
-          to scaffold one project, copy only the auth/config you intend, and verify the isolated container path before the real agent run. Network policy is enforced by nftables, DNS, and an HTTP proxy the container cannot bypass. Every allow you write becomes an{' '}
+          to scaffold one project, copy only the auth/config you intend, verify the isolated container path, and launch the real agent. Network policy is enforced by nftables, DNS, and an HTTP proxy the container cannot bypass. Every allow you write becomes an{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             nft list table
           </code>{' '}
@@ -42,6 +42,9 @@ export function Hero() {
             Source on GitHub
           </Link>
         </div>
+        <p className="mt-5 text-sm text-[var(--muted)] font-mono">
+          curl -fsSL https://outcall.dev/install.sh | sh
+        </p>
 
         <CodePreview />
       </div>

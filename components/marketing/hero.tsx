@@ -12,7 +12,8 @@ export function Hero() {
           <span className="text-[var(--accent)]">in a default-deny box.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          Outcall gives new users a one-command run path: run{' '}
+          Outcall gives new users a one-command run path: install once, let the
+          Linux installer preload the matching daemon image, then run{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             outcall run claude
           </code>{' '}

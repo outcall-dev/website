@@ -7,15 +7,15 @@ export function Hero() {
       <div className="shell relative z-10 pt-20 pb-20 md:pt-32 md:pb-28">
         <p className="eyebrow mb-5">Egress control · agent containers</p>
         <h1 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight max-w-4xl">
-          Decide what your containers can reach.
+          Put Claude Code or Codex
           <br />
-          <span className="text-[var(--accent)]">Then prove it.</span>
+          <span className="text-[var(--accent)]">in a default-deny box.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          By default, an LLM agent in a container can reach the public internet,
-          your internal network, and the host's localhost services. Outcall says
-          no in the kernel: nftables, DNS, and an HTTP proxy your container can't
-          bypass — and every allow you write becomes an{' '}
+          Outcall gives new users a recipe-first path: scaffold one project,
+          copy only the auth/config you intend, and run Claude Code or Codex in
+          a container whose network policy is enforced by nftables, DNS, and an
+          HTTP proxy the container cannot bypass. Every allow you write becomes an{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             nft list table
           </code>{' '}

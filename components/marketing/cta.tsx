@@ -7,13 +7,13 @@ export function CTA() {
         <div className="hero-aura" style={{ height: '200%', top: '-50%' }} />
         <div className="relative z-10 max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Stop trusting agents.
+            Stop trusting agent defaults.
             <br />
-            Start enforcing them.
+            Start with one isolated project.
           </h2>
           <p className="mt-6 text-[var(--muted)] text-lg">
-            Outcall is open source. Spec-first, default-deny, and Linux-native.
-            If you run agents that touch the network, you owe yourself a look.
+            Outcall is open source, spec-first, and Linux-native. The first-run
+            path is now `init`, `doctor`, `recipe test`, then `recipe run`.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/docs/guides/quickstart" className="btn btn-primary">

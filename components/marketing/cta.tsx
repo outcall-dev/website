@@ -13,9 +13,9 @@ export function CTA() {
           </h2>
           <p className="mt-6 text-[var(--muted)] text-lg">
             Outcall is open source, spec-first, and Linux-native. Install once,
-            then start with <code>outcall claude</code> or <code>outcall codex</code>.
-            If this host only matches one provider, <code>outcall start</code> can
-            choose it for you.
+            then start with <code>outcall start</code>. If this host matches
+            both providers, choose explicitly with <code>outcall claude</code>{' '}
+            or <code>outcall codex</code>.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/docs/guides/quickstart" className="btn btn-primary">

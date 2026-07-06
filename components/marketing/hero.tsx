@@ -15,13 +15,22 @@ export function Hero() {
           Outcall gives new users a one-command run path: install once, let the
           Linux installer preload the matching daemon image, then run{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
+            outcall start
+          </code>{' '}
+          to scaffold one project, auto-detect Claude Code or Codex when the
+          host makes that unambiguous, copy only the auth/config you intend,
+          verify the isolated container path, and launch the real agent.
+          Network policy is enforced by nftables, DNS, and an HTTP proxy the
+          container cannot bypass. If the host matches both providers, fall back
+          to{' '}
+          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             outcall claude
           </code>{' '}
           or{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             outcall codex
-          </code>{' '}
-          to scaffold one project, copy only the auth/config you intend, verify the isolated container path, and launch the real agent. Network policy is enforced by nftables, DNS, and an HTTP proxy the container cannot bypass. Every allow you write becomes an{' '}
+          </code>
+          . Every allow you write becomes an{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             nft list table
           </code>{' '}

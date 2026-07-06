@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     template: '%s · Outcall',
   },
   description:
-    'Host-level firewall daemon for Docker agent containers. Bridge, nftables, DNS filter, and HTTP proxy in one daemon.',
+    'Install once, then run Claude Code or Codex in a default-deny container with host-level egress control.',
   openGraph: {
     title: 'Outcall',
     description:
-      'Decide what your containers can reach. Then prove it. A host-level firewall daemon for agent containers.',
+      'Install once, then run Claude Code or Codex in a default-deny container with host-level egress control.',
     url: 'https://outcall.dev',
     siteName: 'Outcall',
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Outcall',
-    description: 'Host-level egress control for agent containers.',
+    description: 'Run Claude Code or Codex in a default-deny container.',
   },
 };
 

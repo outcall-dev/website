@@ -12,8 +12,8 @@ export function CTA() {
             Start with one isolated project.
           </h2>
           <p className="mt-6 text-[var(--muted)] text-lg">
-            Outcall is open source, spec-first, and Linux-native. The first-run
-            path is now `run`.
+            Outcall is open source, spec-first, and Linux-native. Install once,
+            then start with <code>outcall claude</code> or <code>outcall codex</code>.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/docs/guides/quickstart" className="btn btn-primary">

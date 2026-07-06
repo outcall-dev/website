@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${OUTCALL_VERSION:-0.1.22}"
+VERSION="${OUTCALL_VERSION:-0.1.23}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
 BASE_URL="${OUTCALL_RELEASE_BASE_URL:-https://github.com/outcall-dev/outcall/releases/download/v${VERSION}}"
 
@@ -94,9 +94,10 @@ if [ "$os" = "Linux" ]; then
   echo "Next:"
   echo "  cd /path/to/your/project"
   echo "  outcall"
-  echo "  outcall start"
   echo
-  echo "Use \`outcall\` to print the recommended first command for this project and host."
+  echo "Use \`outcall\` as the first-run entrypoint."
+  echo "When provider detection is clear, it will launch the isolated agent directly."
+  echo "Use \`outcall start\` when you want the explicit subcommand."
   echo
   echo "If Outcall cannot infer the provider, choose one explicitly:"
   echo "  outcall claude"

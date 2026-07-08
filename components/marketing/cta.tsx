@@ -16,9 +16,8 @@ export function CTA() {
             run <code>outcall</code>, and let it launch the isolated agent
             directly when detection is clear. Use <code>outcall start</code>{' '}
             when you want the explicit subcommand. If this host matches both
-            providers,
-            choose explicitly with <code>outcall claude</code> or{' '}
-            <code>outcall codex</code>.
+            providers, choose explicitly with <code>outcall run claude</code>{' '}
+            or <code>outcall run codex</code>.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/docs/guides/quickstart" className="btn btn-primary">

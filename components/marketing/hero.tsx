@@ -28,11 +28,11 @@ export function Hero() {
           </code>
           . If the host matches both providers, fall back to{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall claude
+            outcall run claude
           </code>{' '}
           or{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall codex
+            outcall run codex
           </code>
           . Every allow you write becomes an{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">

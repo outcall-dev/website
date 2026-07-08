@@ -1,0 +1,46 @@
+name: Public installer sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/install.sh'
+      - '.github/workflows/public-installer-sync.yml'
+  workflow_dispatch:
+
+jobs:
+  public-installer-sync:
+    name: live install.sh matches repo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Verify live installer version catches up
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          expected_version=$(sed -n 's/^VERSION="${OUTCALL_VERSION:-\(.*\)}"/\1/p' public/install.sh)
+          if [ -z "$expected_version" ]; then
+            echo "failed to parse expected version from public/install.sh"
+            exit 1
+          fi
+
+          echo "Expected version: $expected_version"
+
+          deadline=$((SECONDS + 600))
+          last_body=""
+          while [ "$SECONDS" -lt "$deadline" ]; do
+            body=$(curl -fsSL --max-time 20 https://www.outcall.dev/install.sh)
+            live_version=$(printf '%s\n' "$body" | sed -n 's/^VERSION="${OUTCALL_VERSION:-\(.*\)}"/\1/p' | head -n1)
+            echo "Observed live version: ${live_version:-<missing>}"
+            last_body="$body"
+            if [ "$live_version" = "$expected_version" ]; then
+              exit 0
+            fi
+            sleep 15
+          done
+
+          echo "live installer did not match expected version within 10 minutes"
+          printf '%s\n' "$last_body" | sed -n '1,20p'
+          exit 1

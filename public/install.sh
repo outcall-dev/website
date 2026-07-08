@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${OUTCALL_VERSION:-0.1.26}"
+VERSION="${OUTCALL_VERSION:-0.1.27}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
 BASE_URL="${OUTCALL_RELEASE_BASE_URL:-https://github.com/outcall-dev/outcall/releases/download/v${VERSION}}"
 
@@ -31,8 +31,14 @@ case "$os:$arch" in
     target="aarch64-unknown-linux-gnu"
     docker_image_archive="outcalld-image-linux-arm64.tar.gz"
     ;;
-  Darwin:x86_64) target="x86_64-apple-darwin" ;;
-  Darwin:arm64) target="aarch64-apple-darwin" ;;
+  Darwin:x86_64)
+    target="x86_64-apple-darwin"
+    docker_image_archive="outcalld-image-linux-amd64.tar.gz"
+    ;;
+  Darwin:arm64)
+    target="aarch64-apple-darwin"
+    docker_image_archive="outcalld-image-linux-arm64.tar.gz"
+    ;;
   *)
     echo "error: unsupported platform $os $arch" >&2
     echo "supported targets: Linux x86_64/aarch64, macOS x86_64/arm64" >&2

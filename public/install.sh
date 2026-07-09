@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${OUTCALL_VERSION:-0.1.27}"
+VERSION="${OUTCALL_VERSION:-0.1.28}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
 BASE_URL="${OUTCALL_RELEASE_BASE_URL:-https://github.com/outcall-dev/outcall/releases/download/v${VERSION}}"
 
@@ -106,8 +106,8 @@ if [ "$os" = "Linux" ]; then
   echo "Use \`outcall start\` when you want the explicit subcommand."
   echo
   echo "If Outcall cannot infer the provider, choose one explicitly:"
-  echo "  outcall claude"
-  echo "  outcall codex"
+  echo "  outcall run claude"
+  echo "  outcall run codex"
   echo
   echo "If the first run stops on a prerequisite, inspect it with:"
   echo "  outcall doctor"
@@ -117,8 +117,8 @@ else
   echo "Next:"
   echo "  cd /path/to/your/project"
   echo "  outcall"
-  echo "  outcall claude        # explicit Claude setup"
-  echo "  outcall codex         # explicit Codex setup"
+  echo "  outcall run claude    # explicit Claude setup"
+  echo "  outcall run codex     # explicit Codex setup"
   echo
   echo "On macOS, Outcall uses Docker Desktop's Linux runtime for the daemon and"
   echo "agent containers."

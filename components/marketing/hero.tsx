@@ -12,33 +12,25 @@ export function Hero() {
           <span className="text-[var(--accent)]">in a default-deny box.</span>
         </h1>
         <p className="mt-7 text-lg md:text-xl text-[var(--muted)] max-w-2xl leading-relaxed">
-          Outcall gives new users a one-command run path: install once, let the
-          Linux installer preload the matching daemon image, run{' '}
-          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall
-          </code>{' '}
-          to scaffold one project, auto-detect Claude Code or Codex when the
-          host makes that unambiguous, copy only the auth/config you intend,
-          verify the isolated container path, and launch the real agent
-          directly. Network policy is enforced by nftables, DNS, and an HTTP
-          proxy the container cannot bypass. If you want the explicit
-          subcommand, use{' '}
-          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall start
-          </code>
-          . If the host matches both providers, fall back to{' '}
-          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            outcall run claude
-          </code>{' '}
-          or{' '}
+          Outcall gives new users a one-command run path: install once, verify
+          the matching daemon image, then run{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
             outcall run codex
-          </code>
-          . Every allow you write becomes an{' '}
-          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
-            nft list table
           </code>{' '}
-          counter you can read.
+          to scaffold one project, stage only the auth/config you intend,
+          verify the isolated container path, and launch the real agent
+          directly. It runs on Linux or in Docker Desktop's Linux runtime on
+          macOS. Network policy is default-deny and enforced by nftables, DNS,
+          and an HTTP proxy the container cannot bypass. Use{' '}
+          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
+            outcall doctor --fix codex
+          </code>
+          to repair Docker and project prerequisites. Add only named recipe
+          grants or exact hosts with{' '}
+          <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">
+            outcall allow codex github
+          </code>{' '}
+          .
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link href="/docs/guides/quickstart" className="btn btn-primary">
@@ -74,27 +66,22 @@ function CodePreview() {
           <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-          <span className="ml-3 text-xs text-[var(--muted)] font-mono">/etc/outcall/rules.d/agent.yaml</span>
+          <span className="ml-3 text-xs text-[var(--muted)] font-mono">.outcall/rules/codex.yaml</span>
         </div>
         <pre className="p-5 text-sm leading-relaxed font-mono text-[var(--text)] overflow-x-auto">
-{`# /etc/outcall/rules.d/agent.yaml
-# Default-block is implicit. Write only what the agent may do.
-# HTTPS is matched by hostname (SNI). Method/path are visible
-# only for plaintext HTTP — no TLS interception.
-version: "1"
-rules:
-  - id: allow-openai
-    description: "agent may call the OpenAI API over HTTPS"
-    condition: 'http.host == "api.openai.com"'
-    action: allow
-    egress:
-      mode: proxy
+{`$ outcall allow codex github
+Allowed github for Codex CLI.
+  Rules: .outcall/rules/codex.yaml
+  Default deny remains active for every other destination.
 
-  - id: allow-github-clone
-    condition: |
-      dns.query == "github.com" ||
-      http.host == "github.com"
-    action: allow`}
+$ outcall allow codex https://api.sentry.io
+Allowed https://api.sentry.io for Codex CLI.
+
+$ outcall policy explain codex
+Default: block every destination not listed below.
+  codex-openai-api - Codex may call OpenAI and ChatGPT endpoints.
+  codex-github - Codex may access GitHub for repository operations.
+  codex-host-api-sentry-io - Codex may access api.sentry.io over HTTPS.`}
         </pre>
       </div>
     </div>

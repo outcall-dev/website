@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-VERSION="${OUTCALL_VERSION:-0.1.34}"
+VERSION="${OUTCALL_VERSION:-0.1.35}"
 BIN_DIR="${OUTCALL_BIN_DIR:-$HOME/.local/bin}"
 BASE_URL="${OUTCALL_RELEASE_BASE_URL:-https://github.com/outcall-dev/outcall/releases/download/v${VERSION}}"
 
@@ -134,8 +134,9 @@ if [ "$os" = "Linux" ]; then
   echo "  outcall run claude"
   echo
   echo "If the first run stops on a prerequisite, inspect it with:"
-  echo "  outcall doctor --fix claude"
-  echo "  outcall doctor --fix codex"
+  echo "  outcall doctor"
+  echo "  outcall doctor claude"
+  echo "  outcall doctor codex"
 else
   echo "Next:"
   echo "  outcall run codex"
@@ -144,6 +145,11 @@ else
   echo "On macOS, Outcall uses Docker Desktop's Linux runtime for the daemon and"
   echo "agent containers."
   echo
-  echo "For unattended Claude runs, prefer:"
-  echo "  export ANTHROPIC_API_KEY=..."
+  echo "For unattended Claude subscription runs:"
+  echo "  claude setup-token"
+  echo "  export CLAUDE_CODE_OAUTH_TOKEN=..."
+  echo "  outcall run claude"
+  echo
+  echo "For Claude API authentication, export ANTHROPIC_API_KEY or"
+  echo "ANTHROPIC_AUTH_TOKEN instead."
 fi

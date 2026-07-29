@@ -19,7 +19,7 @@ export function Hero() {
           </code>{' '}
           to scaffold one project, stage only the auth/config you intend,
           verify the isolated container path, and launch the real agent
-          directly. It runs on Linux or in Docker Desktop's Linux runtime on
+          directly. It runs on Linux or in Docker Desktop&apos;s Linux runtime on
           macOS. Network policy is default-deny and enforced by nftables, DNS,
           and an HTTP proxy the container cannot bypass. Use{' '}
           <code className="text-[var(--text)] font-mono text-base bg-[var(--surface-2)] px-1.5 py-0.5 rounded">

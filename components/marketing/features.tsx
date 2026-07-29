@@ -29,13 +29,13 @@ export function Features() {
   return (
     <section className="shell py-24 md:py-32">
       <div className="mb-14 max-w-2xl">
-        <p className="eyebrow mb-4">What's in the box</p>
+        <p className="eyebrow mb-4">What&apos;s in the box</p>
         <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
           One daemon. Six surfaces. Same source of truth.
         </h2>
         <p className="mt-4 text-[var(--muted)] text-lg">
           Outcall ships the network plumbing, the policy plane, and the operator
-          UX as a single binary. You don't stand up six tools to enforce egress —
+          UX as a single binary. You don&apos;t stand up six tools to enforce egress —
           you stand up one.
         </p>
       </div>

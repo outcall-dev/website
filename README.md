@@ -107,3 +107,5 @@ Two marketing components are good candidates for iteration:
   one a candidate for a real proof point.
 
 Both are isolated to a single component each and are safe to iterate on.
+
+[![advertisement](https://ads.servead.net/i/3546bdd1-756c-4786-bffd-4a68156a0037.svg)](https://ads.servead.net/c/3546bdd1-756c-4786-bffd-4a68156a0037)
